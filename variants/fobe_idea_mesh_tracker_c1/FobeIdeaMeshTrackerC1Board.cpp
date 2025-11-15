@@ -26,6 +26,8 @@ void FobeIdeaMeshTrackerC1Board::begin() {
   pinMode(PIN_VBAT_READ, INPUT); // VBAT ADC input
   // Set all button pins to INPUT_PULLUP
   pinMode(PIN_BUTTON1, INPUT_PULLUP_SENSE);
+  pinMode(SX126X_ANT_SW, OUTPUT);
+  digitalWrite(SX126X_ANT_SW, HIGH);
   
 
   #if defined(PIN_WIRE_SDA) && defined(PIN_WIRE_SCL)

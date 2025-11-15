@@ -58,7 +58,8 @@
 #define P_LORA_RESET             (0 + 13)
 #define P_LORA_BUSY              (0 + 15)
 #define P_LORA_NSS               (32 + 8)
-#define SX126X_RXEN              (0 + 11)
+#define SX126X_ANT_SW            (0 + 11)
+#define SX126X_RXEN              RADIOLIB_NC
 #define SX126X_TXEN              RADIOLIB_NC
 #define SX126X_DIO2_AS_RF_SWITCH true
 #define SX126X_DIO3_TCXO_VOLTAGE (1.8f)
