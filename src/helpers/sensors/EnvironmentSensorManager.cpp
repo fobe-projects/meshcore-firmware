@@ -284,7 +284,7 @@ bool EnvironmentSensorManager::begin() {
     INA260_initialized = true;
   } else {
     INA260_initialized = false;
-    MESH_DEBUG_PRINTLN("INA260 was not found at I2C address %02X", TELEM_INA219_ADDRESS);
+    MESH_DEBUG_PRINTLN("INA260 was not found at I2C address %02X", TELEM_INA260_ADDRESS);
   }
   #endif
 
@@ -683,7 +683,7 @@ void EnvironmentSensorManager::start_gps() {
   _location->begin();
   _location->reset();
 
-#ifndef PIN_GPS_RESET
+#ifndef PIN_GPS_EN
   MESH_DEBUG_PRINTLN("Start GPS is N/A on this board. Actual GPS state unchanged");
 #endif
 }
@@ -707,7 +707,9 @@ void EnvironmentSensorManager::loop() {
   static long next_gps_update = 0;
 
   #if ENV_INCLUDE_GPS
-  _location->loop();
+  if (gps_active) {
+    _location->loop();
+  }
   if (millis() > next_gps_update) {
 
     if(gps_active){
