@@ -3,7 +3,7 @@
 #include <MeshCore.h>
 #include <Arduino.h>
 
-class FobeIdeaMeshTrackerC1Board : public mesh::MainBoard {
+class FobeMeshKitC1Board : public mesh::MainBoard {
 protected:
   uint8_t startup_reason;
   uint8_t btn_prev_state;
@@ -31,7 +31,7 @@ public:
   }
 
   const char* getManufacturerName() const override {
-    return "FoBE IDEA Mesh Tracker C1";
+    return "FoBE MeshKit C1";
   }
 
   void reboot() override {

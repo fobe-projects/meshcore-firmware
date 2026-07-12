@@ -3,7 +3,7 @@
 #define RADIOLIB_STATIC_ONLY 1
 #include <RadioLib.h>
 #include <helpers/radiolib/RadioLibWrappers.h>
-#include <FobeIdeaMeshTrackerC1Board.h>
+#include <FobeMeshKitC1Board.h>
 #include <helpers/radiolib/CustomSX1262Wrapper.h>
 #include <helpers/AutoDiscoverRTCClock.h>
 #include <helpers/ArduinoHelpers.h>
@@ -14,7 +14,7 @@
 #endif
 #include <helpers/sensors/EnvironmentSensorManager.h>
 
-extern FobeIdeaMeshTrackerC1Board board;
+extern FobeMeshKitC1Board board;
 extern WRAPPER_CLASS radio_driver;
 extern AutoDiscoverRTCClock rtc_clock;
 extern EnvironmentSensorManager sensors;

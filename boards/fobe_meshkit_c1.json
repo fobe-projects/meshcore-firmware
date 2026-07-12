@@ -15,7 +15,7 @@
     ],
     "usb_product": "FOBEBOOT",
     "mcu": "nrf52840",
-    "variant": "fobe_idea_mesh_tracker_c1",
+    "variant": "fobe_meshkit_c1",
     "bsp": {
       "name": "adafruit"
     },
@@ -36,7 +36,7 @@
     "openocd_target": "nrf52840-mdk-rs"
   },
   "frameworks": ["arduino"],
-  "name": "FoBE IDEA Mesh Tracker C1",
+  "name": "FoBE MeshKit C1",
   "upload": {
     "maximum_ram_size": 248832,
     "maximum_size": 815104,

@@ -1,5 +1,5 @@
-#ifndef _FOBE_IDEA_MESH_TRACKER_C1_H_
-#define _FOBE_IDEA_MESH_TRACKER_C1_H_
+#ifndef _FOBE_MESHKIT_C1_H_
+#define _FOBE_MESHKIT_C1_H_
 
 /** Master clock frequency */
 #define VARIANT_MCK (64000000ul)

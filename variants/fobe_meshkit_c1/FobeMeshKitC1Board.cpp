@@ -1,5 +1,5 @@
 #include <Arduino.h>
-#include "FobeIdeaMeshTrackerC1Board.h"
+#include "FobeMeshKitC1Board.h"
 
 #include <bluefruit.h>
 #include <Wire.h>
@@ -18,7 +18,7 @@ static void disconnect_callback(uint16_t conn_handle, uint8_t reason) {
   MESH_DEBUG_PRINTLN("BLE client disconnected");
 }
 
-void FobeIdeaMeshTrackerC1Board::begin() {
+void FobeMeshKitC1Board::begin() {
   // for future use, sub-classes SHOULD call this from their begin()
   startup_reason = BD_STARTUP_NORMAL;
   btn_prev_state = HIGH;
@@ -44,7 +44,7 @@ void FobeIdeaMeshTrackerC1Board::begin() {
   delay(10);   // give sx1262 some time to power up
 }
 
-bool FobeIdeaMeshTrackerC1Board::startOTAUpdate(const char* id, char reply[]) {
+bool FobeMeshKitC1Board::startOTAUpdate(const char* id, char reply[]) {
   // Config the peripheral connection with maximum bandwidth
   // more SRAM required by SoftDevice
   // Note: All config***() function must be called before begin()
@@ -55,7 +55,7 @@ bool FobeIdeaMeshTrackerC1Board::startOTAUpdate(const char* id, char reply[]) {
   // Set max power. Accepted values are: -40, -30, -20, -16, -12, -8, -4, 0, 4
   Bluefruit.setTxPower(4);
   // Set the BLE device name
-  Bluefruit.setName("FobeIdeaMeshTrackerC1 OTA");
+  Bluefruit.setName("FoBE MeshKit C1 OTA");
 
   Bluefruit.Periph.setConnectCallback(connect_callback);
   Bluefruit.Periph.setDisconnectCallback(disconnect_callback);
