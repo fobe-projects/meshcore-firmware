@@ -2,15 +2,14 @@
 
 #include <MeshCore.h>
 #include <Arduino.h>
+#include <helpers/NRF52Board.h>
 
-class FobeMeshKitC1Board : public mesh::MainBoard {
-protected:
-  uint8_t startup_reason;
-  uint8_t btn_prev_state;
-
+class FobeMeshKitC1Board : public NRF52Board {
 public:
-  void begin();
-  uint8_t getStartupReason() const override { return startup_reason; }
+  FobeMeshKitC1Board() : NRF52Board((char *) "FoBE_MeshKit_C1_OTA") { }
+
+  void begin() override;
+  void shutdownPeripherals() override;
 
 #if defined(P_LORA_TX_LED)
   void onBeforeTransmit() override {
@@ -33,14 +32,4 @@ public:
   const char* getManufacturerName() const override {
     return "FoBE MeshKit C1";
   }
-
-  void reboot() override {
-    NVIC_SystemReset();
-  }
-
-  void powerOff() override {
-    sd_power_system_off();
-  }
-
-  bool startOTAUpdate(const char* id, char reply[]) override;
 };

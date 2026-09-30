@@ -22,6 +22,16 @@ EnvironmentSensorManager sensors = EnvironmentSensorManager();
 #ifdef DISPLAY_CLASS
   DISPLAY_CLASS display;
   MomentaryButton user_btn(PIN_USER_BTN, 1000, true);
+  #if defined(PIN_ENCODER_BTN)
+    // active-low with internal pull-up, no multi-click so a press reacts at once
+    MomentaryButton encoder_btn(PIN_ENCODER_BTN, 1000, true, true, false);
+  #endif
+#endif
+
+#if defined(UI_HAS_ROTARY_INPUT)
+  #include "FobeRotaryInput.h"
+  static FobeRotaryInput rotary_input_impl;
+  RotaryInput& rotary_input = rotary_input_impl;
 #endif
 
 bool radio_init() {

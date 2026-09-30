@@ -28,6 +28,11 @@
 #define PIN_BUTTON1              (32 + 0) // Menu / User Button
 #define PIN_USER_BTN             PIN_BUTTON1
 
+// Rotary encoder (pin assignment taken from FoBE's Meshtastic variant)
+#define PIN_ROTARY_A             (32 + 6)
+#define PIN_ROTARY_B             (32 + 2)
+#define PIN_ENCODER_BTN          (32 + 4) // push-switch built into the encoder
+
 // Buzzer
 #define PIN_BUZZER               (0 + 14) // Buzzer pin (defined per firmware type)
 

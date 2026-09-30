@@ -585,6 +585,9 @@ void UITask::begin(DisplayDriver* display, SensorManager* sensors, NodePrefs* no
 #if defined(PIN_USER_BTN)
   user_btn.begin();
 #endif
+#if defined(PIN_ENCODER_BTN) && defined(DISPLAY_CLASS)
+  encoder_btn.begin();
+#endif
 #if defined(PIN_USER_BTN_ANA)
   analog_btn.begin();
 #endif
@@ -768,6 +771,16 @@ void UITask::loop() {
     c = handleDoubleClick(KEY_PREV);
   } else if (ev == BUTTON_EVENT_TRIPLE_CLICK) {
     c = handleTripleClick(KEY_SELECT);
+  }
+#endif
+#if defined(PIN_ENCODER_BTN) && defined(DISPLAY_CLASS)
+  {
+    int enc_ev = encoder_btn.check();
+    if (enc_ev == BUTTON_EVENT_CLICK) {
+      c = checkDisplayOn(KEY_ENTER);
+    } else if (enc_ev == BUTTON_EVENT_LONG_PRESS) {
+      c = handleLongPress(KEY_SELECT);
+    }
   }
 #endif
 #if defined(UI_HAS_ROTARY_INPUT)
