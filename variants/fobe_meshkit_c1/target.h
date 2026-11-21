@@ -12,6 +12,9 @@
   #include <helpers/ui/SSD1306Display.h>
   #include <helpers/ui/MomentaryButton.h>
 #endif
+#if defined(UI_HAS_ROTARY_INPUT)
+  #include <helpers/ui/RotaryInput.h>
+#endif
 #include <helpers/sensors/EnvironmentSensorManager.h>
 
 extern FobeMeshKitC1Board board;
@@ -21,6 +24,12 @@ extern EnvironmentSensorManager sensors;
 #ifdef DISPLAY_CLASS
   extern DISPLAY_CLASS display;
   extern MomentaryButton user_btn;
+  #if defined(PIN_ENCODER_BTN)
+    extern MomentaryButton encoder_btn;
+  #endif
+#endif
+#if defined(UI_HAS_ROTARY_INPUT)
+  extern RotaryInput& rotary_input;
 #endif
 
 bool radio_init();
